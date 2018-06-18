@@ -17,6 +17,7 @@ class Main extends Component{
     render(){
         return(
             <div className="wrapper">
+            
                 <Sidebar />
                 <div className="main-panel">
                     <Navbar history={this.props.history} />

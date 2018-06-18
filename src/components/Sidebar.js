@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import {Link} from 'react-router-dom';
 
 class Sidebar extends Component {
     render() {
@@ -11,58 +11,42 @@ class Sidebar extends Component {
                 <div className="sidebar-wrapper">
                     <div className="logo">
                         <a href="http://www.creative-tim.com" className="simple-text">
-                            Creative Tim
+                            Nugen I.T Services
                         </a>
                     </div>
                     <ul className="nav">
                         <li className="active">
-                            <a href="dashboard.html">
-                                <i className="pe-7s-graph"/>
+                            <a href="#">
+                                <i className="fa fa-pie-chart"/>
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li>
-                            <a href="user.html">
-                                <i className="pe-7s-user"/>
-                                <p>User Profile</p>
+                            <a href="#">
+                                <i className="fa fa-user"/>
+                                <p>Student Addmission</p>
                             </a>
                         </li>
                         <li>
-                            <a href="table.html">
-                                <i className="pe-7s-note2"/>
-                                <p>Table List</p>
+                            <Link to="/Expenditure">
+                                <i className="fa fa-inr"/>
+                                <p>Expenditure</p>
+                            </Link>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i className="fa fa-desktop"/>
+                                <p>Projects</p>
                             </a>
                         </li>
                         <li>
-                            <a href="typography.html">
-                                <i className="pe-7s-news-paper"/>
-                                <p>Typography</p>
+                            <a href="#">
+                                <i className="fa fa-key"/>
+                                <p>Savings</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="icons.html">
-                                <i className="pe-7s-science"/>
-                                <p>Icons</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="maps.html">
-                                <i className="pe-7s-map-marker"/>
-                                <p>Maps</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="notifications.html">
-                                <i className="pe-7s-bell"/>
-                                <p>Notifications</p>
-                            </a>
-                        </li>
-                        <li className="active-pro">
-                            <a href="upgrade.html">
-                                <i className="pe-7s-rocket"/>
-                                <p>Upgrade to PRO</p>
-                            </a>
-                        </li>
+                       
+                     
                     </ul>
                 </div>
             </div>
