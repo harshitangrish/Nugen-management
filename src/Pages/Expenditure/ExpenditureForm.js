@@ -62,7 +62,7 @@ class ExpenditureForm extends Component {
             <div className="row">
 
 
-                <div className="col-md-8">
+                <div className="col-md-12">
                     <div className="card">
                         <div className="header">
                             <h4 className="title">Expenditure Details</h4>
@@ -73,7 +73,7 @@ class ExpenditureForm extends Component {
                                     <div className="col-md-12">
                                         <div className="form-group">
                                             <label>Paid By</label>
-                                            <input type="text" className="form-control" onKeyUp={this.setPaid_by} />
+                                            <input type="text" className="form-control" onKeyUp={this.setPaid_by} placeholder="Paid By" />
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@ class ExpenditureForm extends Component {
                                     <div className="col-md-12">
                                         <div className="form-group">
                                             <label>Description</label>
-                                            <input type="text" className="form-control" onKeyUp={this.setDescription} />
+                                            <input type="text" className="form-control" onKeyUp={this.setDescription} placeholder="Description" />
                                         </div>
                                     </div>
                                 </div>
@@ -89,19 +89,20 @@ class ExpenditureForm extends Component {
                                     <div className="col-md-12">
                                         <div className="form-group">
                                             <label>Amount</label>
-                                            <input type="text" className="form-control" onKeyUp={this.setAmount} />
+                                            <input type="text" className="form-control" onKeyUp={this.setAmount} placeholder="Amount" />
                                         </div>
                                     </div>
                                 </div>
                                 <button type="button" className="btn btn-info btn-fill pull-right" onClick={this.addDetails}>Add Details</button>
                                 <div className="clearfix" />
                             </form>
+                            
                         </div>
+                        
                     </div>
+                  
                 </div>
-                <div className="row">
-                    <Table />
-                </div>
+
             </div>
 
         );

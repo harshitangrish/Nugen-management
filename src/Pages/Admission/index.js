@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React , {Component} from "react";
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
-import ExpenditureForm from "./ExpenditureForm";
-import Table from './Table';
+import AdmissionForm from './AdmissionForm';
+import TableAdmissions from './TableAdmissions';
 
-class Expenditure extends Component {
+class Admission extends Component {
     render() {
         return (
             <div className="wrapper">
@@ -15,13 +15,10 @@ class Expenditure extends Component {
                     <div className="content">
                     <div className="container-fluid">
                         
-                            <ExpenditureForm />
-                        
-                            
-                                <Table />
-                            
+                            <AdmissionForm />
+                            <TableAdmissions/>
+             
                     </div>
-                   
                 </div>
                 </div>
                 
@@ -29,5 +26,4 @@ class Expenditure extends Component {
         );
     }
 }
-
-export default Expenditure;
+export default Admission;

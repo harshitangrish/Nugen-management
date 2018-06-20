@@ -10,7 +10,7 @@ class Sidebar extends Component {
                 data-image="assets/img/sidebar-5.jpg">
                 <div className="sidebar-wrapper">
                     <div className="logo">
-                        <a href="http://www.creative-tim.com" className="simple-text">
+                        <a href="#" className="simple-text">
                             Nugen I.T Services
                         </a>
                     </div>
@@ -22,10 +22,10 @@ class Sidebar extends Component {
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <Link to="/Admission">
                                 <i className="fa fa-user"/>
                                 <p>Student Addmission</p>
-                            </a>
+                            </Link>
                         </li>
                         <li>
                             <Link to="/Expenditure">
