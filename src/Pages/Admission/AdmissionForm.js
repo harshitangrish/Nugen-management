@@ -9,7 +9,7 @@ class AdmissionForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            installment:[],
             student_name:'',
             email:'',
             mobile_number:'',
@@ -24,6 +24,9 @@ class AdmissionForm extends Component {
             total_installments: [],
             referred_by: '',
             dob: '',
+            date:'',
+            amount:0,
+            installments_array:[],
         }
     }
     componentDidUpdate=()=>{
@@ -31,26 +34,42 @@ class AdmissionForm extends Component {
     }
 
     setInstallment = (e) => {
+        console.log(e.target.value);
         this.setState({
-            total_installments: []
+            installment: []
         });
         if (e.target.value === 0) {
-            let inst = this.state.total_installments;
+            let inst = this.state.installment;
             inst.push(e.target.value)
             this.setState({
-              total_installments: e.target.value
+              installment: inst
             });
         }
         else {
             let i = 1;
             for (i = 1; i <= e.target.value; i++) {
-                let inst = this.state.total_installments;
+                let inst = this.state.installment;
                 inst.push(i)
                 this.setState({
-                    total_installments: inst
+                    installment: inst
                 });
             }
         }
+
+    }
+
+    addInstallment = ()=>{
+        
+        let installments_arrayone = this.state.installments_array;
+        let installment =[{
+            amount:this.state.amount,
+            installment_date:this.state.date
+        }];
+        installments_arrayone.push(installment);
+        this.setState({
+            installments_array:installments_arrayone
+        });
+
 
     }
 
@@ -63,6 +82,16 @@ class AdmissionForm extends Component {
     setdob = (e) => {
         this.setState({
             dob: e.target.value
+        });
+    }
+    setDate = (e) => {
+        this.setState({
+            date: e.target.value
+        });
+    }
+    setAmount = (e) => {
+        this.setState({
+            amount: e.target.value
         });
     }
 
@@ -156,9 +185,10 @@ class AdmissionForm extends Component {
             course_id:this.state.course_id,
             total_fee:this.state.total_fee,
             advance_payment:this.state.advance_payment,
-            total_installments: [],
+            total_installments:this.state.total_installments,
             referred_by:this.state.referred_by,
             dob: this.state.dob,
+            installments_array:this.state.installments_array,
         });
         console.log(body);
         let res = Helper("http://192.168.1.12:3000/v1/admissions", 'POST', body);
@@ -287,8 +317,8 @@ class AdmissionForm extends Component {
                                     <div className="col-md-6">
                                         <div className="form-group">
                                             <label>Total Installments</label>
-                                            <Input type="text" className="form-control" placeholder="No. Of Installments" min="0" max="20" onChange={this.setInstallment} 
-                                            onKeyUp={this.setInstallment} validations={[required]}/>
+                                            <Input type="number" className="form-control" placeholder="No. Of Installments" min="0" max="20"  
+                                            onKeyUp={this.settotal_installments} onChange = { this.setInstallment } validations={[required]}/>
                                         </div>
                                     </div>
 
@@ -305,11 +335,15 @@ class AdmissionForm extends Component {
                                         <div className="form-group">
                                             <label>To Be Paid On</label>
                                             {
-                                                this.state.total_installments.map((installment) => {
+                                                this.state.installment.map((installment) => {
                                                     return (
-
+                                                        <div className = "row">
                                                         <Input type="date" className="form-control" placeholder="dd/mm/yy" 
-                                                        onKeyUp={this.email} validations={[required]}/>
+                                                        onKeyUp={this.setDate} validations={[required]}/>
+                                                        <Input type="text" className="form-control" placeholder="Amount" 
+                                                        onKeyUp={this.setAmount} validations={[required]}/>
+                                                        <div onClick = {this.addInstallment} className = "btn btn-primary">ADD installment</div>
+                                                        </div>
                                                     );
                                                 })
                                             }
