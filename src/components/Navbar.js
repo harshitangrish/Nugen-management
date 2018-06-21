@@ -3,9 +3,7 @@ import cookie from "react-cookies";
 
 class Navbar extends Component {
 
-    constructor(props){
-        super(props);
-    }
+  
 
     logout = () => {
         cookie.remove('token');

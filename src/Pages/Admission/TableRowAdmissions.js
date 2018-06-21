@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TableRowAdmissions = (props) => {
-    const { id, course_id, registration_number, student_name , email , mobile_number , school_college , stream , father_mother_name , parent_mobile_number , permanent_address , total_fee , advance_payment, total_installments , referred_by , dob , created_at } = props;
+    const { id, course_id, registration_number, student_name , email  , school_college ,  total_fee , advance_payment, total_installments , dob , created_at } = props;
     return (
         <tr>
             <td> { id } </td>

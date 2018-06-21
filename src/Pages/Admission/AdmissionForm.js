@@ -31,10 +31,11 @@ class AdmissionForm extends Component {
     }
     componentDidUpdate=()=>{
         console.log(this.state);
+        console.log(typeof(this.state.installments_array));
     }
 
     setInstallment = (e) => {
-        console.log(e.target.value);
+        console.log(e.target.value);  
         this.setState({
             installment: []
         });
@@ -58,20 +59,7 @@ class AdmissionForm extends Component {
 
     }
 
-    addInstallment = ()=>{
-        
-        let installments_arrayone = this.state.installments_array;
-        let installment =[{
-            amount:this.state.amount,
-            installment_date:this.state.date
-        }];
-        installments_arrayone.push(installment);
-        this.setState({
-            installments_array:installments_arrayone
-        });
 
-
-    }
 
     setstudent_name = (e) => {
         this.setState({
@@ -169,6 +157,22 @@ class AdmissionForm extends Component {
         this.setState({
             referred_by: e.target.value
         });
+    }
+
+
+    addInstallment = ()=>{
+    
+        let installments_arrayone = this.state.installments_array;
+        let installment ={
+            amount: this.state.amount,
+            installment_date: this.state.date
+        };
+        // let testing = JSON.parse(installment);
+        installments_arrayone.push(installment);
+        this.setState({
+            installments_array:installments_arrayone
+        });
+
     }
 
 
@@ -342,7 +346,7 @@ class AdmissionForm extends Component {
                                                         onKeyUp={this.setDate} validations={[required]}/>
                                                         <Input type="text" className="form-control" placeholder="Amount" 
                                                         onKeyUp={this.setAmount} validations={[required]}/>
-                                                        <div onClick = {this.addInstallment} className = "btn btn-primary">ADD installment</div>
+                                                        <div onClick = {this.addInstallment} className = "btn btn-primary">Add Installment</div>
                                                         </div>
                                                     );
                                                 })

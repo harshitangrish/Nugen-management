@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Helper from '../../components/Helper';
-import Table from './Table';
+
 
 class ExpenditureForm extends Component {
 
