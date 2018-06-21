@@ -60,7 +60,7 @@ class Login extends Component {
                                 className="profile-img"
                                 src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                                 alt/>
-                            <Form className="form-signin">
+                            <Form className="form-signin" >
                                 <Input
                                     type="text"
                                     className="form-control"

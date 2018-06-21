@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Sidebar from './components/Sidebar';
 import Navbar from "./components/Navbar";
 import cookie from 'react-cookies';
-import Table from "./components/Table";
+import TableAdmissions from "./components/TableAdmissions";
 
 class Main extends Component{
 
@@ -23,7 +23,7 @@ class Main extends Component{
                     <Navbar history={this.props.history} />
                     <div className = "content">
                         <div className = "container-fluid" >
-                            <Table />
+                            <TableAdmissions />
                         </div>
                     </div>
                 </div>
