@@ -1,9 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import cookie from "react-cookies";
 
 class Navbar extends Component {
 
-  
+
 
     logout = () => {
         cookie.remove('token');
@@ -21,95 +21,30 @@ class Navbar extends Component {
                             data-toggle="collapse"
                             data-target="#navigation-example-2">
                             <span className="sr-only">Toggle navigation</span>
-                            <span className="icon-bar"/>
-                            <span className="icon-bar"/>
-                            <span className="icon-bar"/>
+                            <span className="icon-bar" />
+                            <span className="icon-bar" />
+                            <span className="icon-bar" />
                         </button>
-                        <a className="navbar-brand" href="#">Dashboard</a>
+                        <a className="navbar-brand">Dashboard</a>
                     </div>
                     <div className="collapse navbar-collapse">
                         <ul className="nav navbar-nav navbar-left">
-                            <li>
-                                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                                    <i className="fa fa-dashboard"/>
-                                    <p className="hidden-lg hidden-md">Dashboard</p>
-                                </a>
-                            </li>
-                            <li className="dropdown">
-                                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                                    <i className="fa fa-globe"/>
-                                    <b className="caret hidden-lg hidden-md"/>
-                                    <p className="hidden-lg hidden-md">
-                                        5 Notifications
-                                        <b className="caret"/>
-                                    </p>
-                                </a>
-                                <ul className="dropdown-menu">
-                                    <li>
-                                        <a href="#">Notification 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Notification 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Notification 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Notification 4</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Another notification</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href>
-                                    <i className="fa fa-search"/>
-                                    <p className="hidden-lg hidden-md">Search</p>
-                                </a>
-                            </li>
+                            
+                            
+                            
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
+                           
+                   
                             <li>
-                                <a href>
-                                    <p>Account</p>
-                                </a>
-                            </li>
-                            <li className="dropdown">
-                                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-                                        Dropdown
-                                        <b className="caret"/>
-                                    </p>
-                                </a>
-                                <ul className="dropdown-menu">
-                                    <li>
-                                        <a href="#">Action</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Another action</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Something</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Another action</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Something</a>
-                                    </li>
-                                    <li className="divider"/>
-                                    <li>
-                                        <a href="#">Separated link</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                    <button onClick={this.logout}>Log out</button>
+                                    <button className="btn btn-success"onClick={this.logout}>Log Out</button>
                             </li>
                             <li className="separator hidden-lg"/>
                         </ul>
                     </div>
+                    
+                    
+                    
                 </div>
             </nav>
 

@@ -3,6 +3,8 @@ import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import { required, email } from '../../components/Validator';
 import Helper from '../../components/Helper';
+import Autosuggest from 'react-autosuggest';
+
 
 
 class AdmissionForm extends Component {
@@ -200,11 +202,11 @@ class AdmissionForm extends Component {
         res.then((res) => {
             console.log(res.content);
             if (res.msg === 1) {
-                alert("Post saved successfully");
+                alert(" Entry added successfully");
 
             }
             else {
-                alert("Error while saving post");
+                alert("Error while adding entry");
 
             }
 
@@ -354,7 +356,7 @@ class AdmissionForm extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" className="btn btn-info btn-fill pull-right" onClick={this.addInfo}>ADD</button>
+                                <button type="button" className="btn btn-success btn-fill pull-right" onClick={this.addInfo}>ADD</button>
                                 <div className="clearfix" />
                             </Form>
                         </div>

@@ -93,7 +93,7 @@ class ExpenditureForm extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" className="btn btn-info btn-fill pull-right" onClick={this.addDetails}>Add Details</button>
+                                <button type="button" className="btn btn-success btn-fill pull-right" onClick={this.addDetails}>Add Details</button>
                                 <div className="clearfix" />
                             </form>
                             

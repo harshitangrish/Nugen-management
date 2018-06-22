@@ -10,16 +10,16 @@ class Sidebar extends Component {
                 data-image="assets/img/sidebar-5.jpg">
                 <div className="sidebar-wrapper">
                     <div className="logo">
-                        <a href="#" className="simple-text">
+                        <Link to="/dashboard" className="simple-text">
                             Nugen I.T Services
-                        </a>
+                        </Link>
                     </div>
                     <ul className="nav">
                         <li className="active">
-                            <a href="#">
+                            <Link to="/dashboard">
                                 <i className="fa fa-pie-chart"/>
                                 <p>Dashboard</p>
-                            </a>
+                            </Link>
                         </li>
                         <li>
                             <Link to="/Admission">

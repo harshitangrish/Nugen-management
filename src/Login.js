@@ -1,50 +1,95 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import './Login.css';
 import cookie from 'react-cookies';
 import Helper from './components/Helper';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
-import { required , email } from './components/Validator';
+import { required, email } from './components/Validator';
+
+import 'whatwg-fetch';
 
 
 class Login extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            email:'',
-            password:''
+        this.state = {
+            email: '',
+            password: '',
+            url: 'http://192.168.1.12:3000/v1/login',
+            info: [],
+            loader: true
         };
-
+        this.fetchInfo();
     }
 
-    setEmail = (e) => { 
+    fetchInfo() {
+        fetch(this.state.url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((res) => {
+                console.log(res);
+                this.setState({
+                    info: res
+                });
+                this.toggleLoader();
+            })
+
+            .catch((err) => {
+                console.log("Error while loading page", err);
+            })
+    }
+
+    toggleLoader = () => {
         this.setState({
-            email:e.target.value
+            loader: !this.state.loader
         });
     }
-    setPassword = (e) => { 
+
+
+
+
+
+    setEmail = (e) => {
         this.setState({
-            password:e.target.value
+            email: e.target.value
+        });
+    }
+    setPassword = (e) => {
+        this.setState({
+            password: e.target.value
         });
     }
 
-    loginUser = ()=> {
-        let body=JSON.stringify({
-            email:this.state.email,
-            password:this.state.password
+    loginUser = () => {
+        this.testing();
+        let body = JSON.stringify({
+            email: this.state.email,
+            password: this.state.password
         });
-        let res = Helper("http://192.168.1.12:3000/v1/login",'POST',body);
+        let res = Helper("http://192.168.1.12:3000/v1/login", 'POST', body);
 
-        res.then((res)=>{
-            if(res.access_token !== undefined){
-                cookie.save('token',res.access_token);
+        res.then((res) => {
+            if (res.access_token !== undefined) {
+                cookie.save('token', res.access_token);
                 this.props.history.push('/dashboard');
+                this.toggleLoader();
             }
-            else{
+            else {
                 alert("wrong username/password");
             }
         });
+    }
+
+    testing =() =>{
+        return(
+            <div className={this.state.loader === true ? 'loader' : 'hide-loader'}>
+
+                                </div>
+
+        );
+
     }
 
 
@@ -52,6 +97,9 @@ class Login extends Component {
         return (
 
             <div className="container">
+
+
+
                 <div className="row">
                     <div className="col-sm-6 col-md-4 col-md-offset-4">
                         <h1 className="text-center login-title">Nugen IT Services</h1>
@@ -59,7 +107,7 @@ class Login extends Component {
                             <img
                                 className="profile-img"
                                 src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-                                alt=""/>
+                                alt="" />
                             <Form className="form-signin">
                                 <Input
                                     type="text"
@@ -76,13 +124,14 @@ class Login extends Component {
                                     validations={[required]} />
                                 <button className="btn btn-lg btn-success btn-block" type="button" onClick={this.loginUser} >
                                     Login</button>
-                                {/* <a href="#" className="pull-right need-help">Forgot Password
-                                </a><span className="clearfix"/> */}
+
+                                
                             </Form>
                         </div>
-                        
+
                     </div>
                 </div>
+
             </div>
 
         );
