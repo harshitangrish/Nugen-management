@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import Sidebar from './components/Sidebar';
-import Navbar from "./components/Navbar";
+import Sidebar from '../../components/Sidebar';
+import Navbar from "../../components/Navbar";
 import cookie from 'react-cookies';
+import Cards from "./Cards";
+import Students from './Students';
 import 'whatwg-fetch';
-class Main extends Component{
+class Dashboard extends Component{
 
     constructor(props){
         super(props);
@@ -50,13 +52,27 @@ class Main extends Component{
                 <Sidebar />
                 <div className="main-panel">
                     <Navbar history={this.props.history} />
-                </div>
-                <div className={this.state.loader === true ? 'loader' : 'hide-loader'}>
                 
+                <div className={this.state.loader === true ? 'loader' : 'hide-loader'}>
+                </div>
+                
+                <div className="content">
+                    <div className="container-fluid">
+                        <div className="row">
+                            <Cards background="danger" number="Admissions" heading="ADMISSIONS" icon="user" />
+                            <Cards background="success" number="Projects" heading="PROJECTS" icon="desktop" />
+                            <Cards background="warning" number="Expenditures" heading="EXPENDITURES" icon="inr" />
+                            <Cards background="primary" number="Savings" heading="SAVINGS" icon="key" />
+                        </div>
+                    </div>
+                
+
+                <Students/>
+                </div>
                 </div>
             </div>
         );
     }
 }
 
-export default Main;
+export default Dashboard;
