@@ -68,7 +68,7 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         });
-        let res = Helper("http://192.168.1.12:3000/v1/login", 'POST', body);
+        let res = Helper("http://192.168.1.17:3000/v1/login", 'POST', body);
 
         res.then((res) => {
             if (res.access_token !== undefined) {

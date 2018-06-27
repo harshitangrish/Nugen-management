@@ -41,6 +41,18 @@ class Sidebar extends Component {
                         </li>
                         <li>
                             <a href="#">
+                                <i className="fa fa-desktop"/>
+                                <p>Add Fee</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i className="fa fa-desktop"/>
+                                <p>Course Details</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
                                 <i className="fa fa-key"/>
                                 <p>Savings</p>
                             </a>

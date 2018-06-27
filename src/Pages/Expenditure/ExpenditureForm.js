@@ -42,7 +42,7 @@ class ExpenditureForm extends Component {
             amount: this.state.amount
         });
         console.log(body);
-        let res = Helper("http://192.168.1.12:3000/v1/expenditures", 'POST', body);
+        let res = Helper("http://192.168.1.17:3000/v1/expenditures", 'POST', body);
 
         res.then((res) => {
             console.log(res);

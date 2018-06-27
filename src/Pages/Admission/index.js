@@ -17,7 +17,7 @@ class Admission extends Component {
         }
         this.state =
             {
-                url: 'http://192.168.1.12:3000/v1/admissions',
+                url: 'http://192.168.1.17:3000/v1/admissions',
                 info: [],
                 loader: true,
                 open:false
@@ -71,11 +71,22 @@ class Admission extends Component {
                         <div className="container-fluid">
                             <div className={this.state.loader === true ? 'loader': 'hide-loader'}>
                             </div>
-                            
+
+                            <ul className="nav navbar-nav navbar-right">
+                            <li>
                             <button className="btn btn-success" onClick={this.onOpenModal}>New Admission</button>
-                            <Modal open={open} onClose={this.onCloseModal} center>
+                            </li>
+                            </ul>
+                            
+                    
+                            <Modal open={open} onClose={this.onCloseModal} >
+                            <div className="frame">
+                            <div className="scroll">
                             <AdmissionForm />
+                            </div>
+                            </div>
                             </Modal>
+
                             
                             <TableAdmissions />
 

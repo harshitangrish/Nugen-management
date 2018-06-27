@@ -2,12 +2,14 @@ import React,{ Component } from 'react';
 import Helper from '../../components/Helper';
 import Tablerow from './Tablerow';
 
+
 class Table extends Component {
 
     constructor(props){
         super(props);
         this.state={
             table_Data :[],
+            open:false
         }
 
     }
@@ -16,7 +18,7 @@ class Table extends Component {
     }
     fetchData = ()=> {
         let body={}
-        let res = Helper("http://192.168.1.12:3000/v1/expenditures",'GET',body);
+        let res = Helper("http://192.168.1.17:3000/v1/expenditures",'GET',body);
 
         res.then((res) => {
             this.setState({
@@ -25,14 +27,21 @@ class Table extends Component {
         })
     }
 
+   
+
+
     render(){
-    return (
+        const {open} =this.state;
+        return (
+        
         <div className="row">
             <div className="col-md-12">
                 <div className="card">
                     <div className="header">
+                        
                         <h4 className="title">Expenditures Table</h4>
                         <p className="category">Complete details of all Expenditures</p>
+                    
                     </div>
                     <div className="content table-responsive table-full-width">
                         <table className="table table-hover table-striped">

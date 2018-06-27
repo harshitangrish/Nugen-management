@@ -152,7 +152,9 @@ class AdmissionForm extends Component {
     settotal_installments = (e) => {
         this.setState({
             total_installments: e.target.value
+
         });
+        this.setInstallment(e);
     }
 
     setreferred_by = (e) => {
@@ -197,7 +199,7 @@ class AdmissionForm extends Component {
             installments_array:this.state.installments_array,
         });
         console.log(body);
-        let res = Helper("http://192.168.1.12:3000/v1/admissions", 'POST', body);
+        let res = Helper("http://192.168.1.17:3000/v1/admissions", 'POST', body);
 
         res.then((res) => {
             console.log(res.content);
@@ -324,7 +326,7 @@ class AdmissionForm extends Component {
                                         <div className="form-group">
                                             <label>Total Installments</label>
                                             <Input type="number" className="form-control" placeholder="No. Of Installments" min="0" max="20"  
-                                            onKeyUp={this.settotal_installments} onChange = { this.setInstallment } validations={[required]}/>
+                                            onChange={this.settotal_installments}  validations={[required]}/>
                                         </div>
                                     </div>
 

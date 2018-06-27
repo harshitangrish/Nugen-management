@@ -7,19 +7,21 @@ import 'whatwg-fetch';
 import Modal from 'react-responsive-modal';
 import cookie from 'react-cookies';
 
+
+
 class Expenditure extends Component {
 
     constructor(props) {
         super(props);
-        if(cookie.load('token')===undefined){
+        if (cookie.load('token') === undefined) {
             this.props.history.push("/");
         }
         this.state =
             {
-                url: 'http://192.168.1.12:3000/v1/expenditures',
+                url: 'http://192.168.1.17:3000/v1/expenditures',
                 info: [],
                 loader: true,
-                open:false
+                open: false
             };
         this.fetchInfo();
     }
@@ -50,14 +52,14 @@ class Expenditure extends Component {
 
     onOpenModal = () => {
         this.setState({ open: true });
-      };
-     
+    };
+
     onCloseModal = () => {
         this.setState({ open: false });
-      };
+    };
 
     render() {
-        const {open}=this.state;
+        const { open } = this.state;
         return (
             <div className="wrapper">
 
@@ -68,9 +70,18 @@ class Expenditure extends Component {
                         <div className="container-fluid">
                             <div className={this.state.loader === true ? 'loader' : 'hide-loader'}>
                             </div>
+                            <ul className="nav navbar-nav navbar-right">
+                            <li>
                             <button className="btn btn-success" onClick={this.onOpenModal}>Add Expenditure</button>
-                            <Modal open={open} onClose={this.onCloseModal}center>
-                            <ExpenditureForm />
+                            </li>
+                            </ul>
+                            <Modal open={open} onClose={this.onCloseModal} center >
+                           
+                                <div className="frame">
+                                    <div className="scroll">
+                                        <ExpenditureForm />
+                                    </div>
+                                </div>
                             </Modal>
 
                             <Table />

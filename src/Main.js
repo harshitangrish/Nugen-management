@@ -11,7 +11,7 @@ class Main extends Component{
             this.props.history.push("/");
         }
         this.state={
-            url: 'http://192.168.1.12:3000/v1/admissions',
+            url: 'http://192.168.1.17:3000/v1/admissions',
             info: [],
             loader: true
         };
