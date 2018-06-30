@@ -1,11 +1,15 @@
 import React,{ Component } from 'react';
 import Helper from '../../components/Helper';
 import TableRowAdmissions from './TableRowAdmissions';
+import cookie from 'react-cookies';
 
 class TableAdmissions extends Component {
 
     constructor(props){
         super(props);
+          if(cookie.load('token')===undefined){
+            this.props.history.push("/");
+        }
         this.state={
             table_Data :[],
         }

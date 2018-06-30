@@ -16,7 +16,7 @@ class Students extends Component{
     }
     fetchData = ()=> {
         let body={}
-        let res = Helper("http://192.168.1.17:3000/v1/expenditures",'GET',body);
+        let res = Helper("http://192.168.1.17:3000/v1/admissions",'GET',body);
 
         res.then((res) => {
             this.setState({
@@ -24,6 +24,8 @@ class Students extends Component{
             });
         })
     }
+
+   
     render(){
         return(
             <div className="row">
@@ -48,9 +50,11 @@ class Students extends Component{
                             <tbody>
                                 {
                                     this.state.student_Data.map((data)=>{
-                                        return(
+                                            return(
                                             <StudentRow {...data} />
-                                        );
+                                                );
+                                            
+                                    
                                     })
                                 }
                                 

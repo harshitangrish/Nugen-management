@@ -1,10 +1,10 @@
 import React  from "react";
 import {Link} from 'react-router-dom';
 
-const Cards =(props)=>
+const BigCard =(props)=>
     {
         return(
-            <div className="col-lg-3 col-6">
+            <div className="col-lg-6 col-6">
             <div className={"small-box bg-" +props.background}>
                 <div className="inner">
                     <h4>{props.number}</h4>
@@ -22,4 +22,4 @@ const Cards =(props)=>
         );
     }
 
-export default Cards;
+export default BigCard;

@@ -77,11 +77,8 @@ class Expenditure extends Component {
                             </ul>
                             <Modal open={open} onClose={this.onCloseModal} center >
                            
-                                <div className="frame">
-                                    <div className="scroll">
                                         <ExpenditureForm />
-                                    </div>
-                                </div>
+                                
                             </Modal>
 
                             <Table />

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Helper from '../../components/Helper';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class ExpenditureForm extends Component {
 
@@ -33,7 +34,7 @@ class ExpenditureForm extends Component {
 
     }
 
-
+    notify = (msg) => toast(msg);
 
     addDetails = () => {
         let body = JSON.stringify({
@@ -47,11 +48,11 @@ class ExpenditureForm extends Component {
         res.then((res) => {
             console.log(res);
             if (res.msg === 1) {
-                alert("Post saved successfully");
+                this.notify("Expenditure added successfully!");
 
             }
             else {
-                alert("Error while saving post");
+                this.notify("Error while adding expenditures!");
 
             }
 
@@ -60,7 +61,7 @@ class ExpenditureForm extends Component {
     render() {
         return (
             <div className="row">
-
+            
 
                 <div className="col-md-12">
                     <div className="card">
@@ -94,6 +95,7 @@ class ExpenditureForm extends Component {
                                     </div>
                                 </div>
                                 <button type="button" className="btn btn-success btn-fill pull-right" onClick={this.addDetails}>Add Details</button>
+                                <ToastContainer/>
                                 <div className="clearfix" />
                             </form>
                             

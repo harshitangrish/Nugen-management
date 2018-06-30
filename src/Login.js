@@ -5,6 +5,8 @@ import Helper from './components/Helper';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import { required, email } from './components/Validator';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import 'whatwg-fetch';
 
@@ -45,11 +47,8 @@ class Login extends Component {
         this.setState({
             loader: !this.state.loader
         });
+        
     }
-
-
-
-
 
     setEmail = (e) => {
         this.setState({
@@ -62,8 +61,10 @@ class Login extends Component {
         });
     }
 
-    loginUser = () => {
-        this.testing();
+    notify = (msg) => toast(msg);
+
+    loginUser = () =>{
+        
         let body = JSON.stringify({
             email: this.state.email,
             password: this.state.password
@@ -72,33 +73,27 @@ class Login extends Component {
 
         res.then((res) => {
             if (res.access_token !== undefined) {
+                this.notify("Login successfull");
                 cookie.save('token', res.access_token);
                 this.props.history.push('/dashboard');
                 this.toggleLoader();
             }
             else {
-                alert("wrong username/password");
+                this.notify("wrong username/password");
             }
         });
+
+        
     }
 
-    testing =() =>{
-        return(
-            <div className={this.state.loader === true ? 'loader' : 'hide-loader'}>
-
-                                </div>
-
-        );
-
-    }
 
 
     render() {
         return (
-
+            
             <div className="container">
 
-
+        
 
                 <div className="row">
                     <div className="col-sm-6 col-md-4 col-md-offset-4">
@@ -124,8 +119,8 @@ class Login extends Component {
                                     validations={[required]} />
                                 <button className="btn btn-lg btn-success btn-block" type="button" onClick={this.loginUser} >
                                     Login</button>
-
-                                
+                                <ToastContainer autoClose={6000}/>
+                      
                             </Form>
                         </div>
 

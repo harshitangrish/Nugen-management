@@ -25,14 +25,14 @@ class Navbar extends Component {
                             <span className="icon-bar" />
                             <span className="icon-bar" />
                         </button>
-                        <a className="navbar-brand">Dashboard</a>
+                        <a className="navbar-brand">Management System</a>
                     </div>
                     <div className="collapse navbar-collapse">
-                        <ul className="nav navbar-nav navbar-left">
+                        {/* <ul className="nav navbar-nav navbar-left">
                             
                             
                             
-                        </ul>
+                        </ul> */}
                         <ul className="nav navbar-nav navbar-right">
                            
                    

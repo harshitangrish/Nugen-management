@@ -4,12 +4,16 @@ import Input from 'react-validation/build/input';
 import { required, email } from '../../components/Validator';
 import Helper from '../../components/Helper';
 import Autosuggest from 'react-autosuggest';
-
-
+import cookie from 'react-cookies';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class AdmissionForm extends Component {
     constructor(props) {
         super(props);
+          if(cookie.load('token')===undefined){
+            this.props.history.push("/");
+        }
         this.state = {
             installment:[],
             student_name:'',
@@ -171,16 +175,18 @@ class AdmissionForm extends Component {
             amount: this.state.amount,
             installment_date: this.state.date
         };
-        // let testing = JSON.parse(installment);
+    
         installments_arrayone.push(installment);
         this.setState({
             installments_array:installments_arrayone
         });
 
     }
-
+    
+    notify = (msg) => toast(msg);
 
     addInfo = () => {
+        // this.notify("Student Registered!")
         let body = JSON.stringify({
             student_name:this.state.student_name,
             email:this.state.email,
@@ -204,11 +210,12 @@ class AdmissionForm extends Component {
         res.then((res) => {
             console.log(res.content);
             if (res.msg === 1) {
-                alert(" Entry added successfully");
+                
+                this.notify("Student Registered!");
 
             }
             else {
-                alert("Error while adding entry");
+                this.notify("Error while adding new entry!");
 
             }
 
@@ -217,6 +224,7 @@ class AdmissionForm extends Component {
 
 
     render() {
+    
         return (
             <div className="row">
                 <div className="col-md-12">
@@ -359,6 +367,7 @@ class AdmissionForm extends Component {
                                     </div>
                                 </div>
                                 <button type="button" className="btn btn-success btn-fill pull-right" onClick={this.addInfo}>ADD</button>
+                                <ToastContainer/>
                                 <div className="clearfix" />
                             </Form>
                         </div>
